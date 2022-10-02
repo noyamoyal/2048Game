@@ -97,7 +97,7 @@ class Game:
 
     def same_neighbors(self, row_idx, col_idx, direction, start, stop, step):
         """
-        update the board in case that two identical cell were marged
+        update the board in case that two identical cell were merged
         :param row_idx: The row index of the cell being merged to
         :param col_idx: The col index of the cell being merged to
         :param direction: the direction of the merging
