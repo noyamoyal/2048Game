@@ -14,7 +14,6 @@ COLS = 4
 ROWS = 4
 INITIAL_VAL1 = 2
 INITIAL_VAL2 = 4
-GROWTH_RATE = 2
 MIN_SCORE_TO_4 = 500
 UP = "up"
 DOWN = "down"
@@ -106,7 +105,7 @@ class Game:
         :param step: loop step
         """
         cur_cell = self._board[row_idx][col_idx]
-        cur_cell.set_val(cur_cell.get_val() * GROWTH_RATE)
+        cur_cell.set_val(cur_cell.get_val() * Cell.GROWTH_RATE)
         self.__score += cur_cell.get_val()
         self.__best_score = max(self.__score, self.__best_score)
 
@@ -259,7 +258,7 @@ class Game:
         inner function for set board in tests by lists
         :param cpy_brd: list with the required data in each cell
         """
-        # validate check
+        # validity check
         if len(cpy_brd) != ROWS:
             raise Exception("length error: invalid rows number")
         for i in range(ROWS):
@@ -272,7 +271,7 @@ class Game:
 
     def _print_board(self):
         """
-        inner function for tests
+        inner function for display in tests
         """
         print("   -board game-   \n##################")
         for i in range(ROWS):
