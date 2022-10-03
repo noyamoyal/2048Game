@@ -216,9 +216,9 @@ class Gui:
         """
         self._update_display()
         if self.__game_board.game_over():
-            self._lose()
+            return self._lose()
         if self.__game_board.winner() and not self.__win:
-            self.win()
+            return self.win()
         self.__undo_button[BG] = MAIN_BUTTONS_COLOR
         Gui.play_sound(MOVE_SOUND)
 
