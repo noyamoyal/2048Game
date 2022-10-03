@@ -6,6 +6,7 @@ from tkinter import *
 from tkinter import messagebox
 from Game import *
 import pygame
+import time
 
 ###############################################################################
 #                                Constant                                     #
@@ -22,21 +23,20 @@ LETTERS_FONT = "Yu Gothic UI Semibold"
 NUMBERS_FONT = "BN Zarbobim"
 
 # SOUNDS #
-MOVE_SOUND = "move_sound.mp3"
-GAME_OVER_SOUND = "game over.wav"
-WIN_SOUND = "win.wav"
+MOVE_SOUND = "accompanying files/move_sound.mp3"
+GAME_OVER_SOUND = "accompanying files/gameover.wav"
+WIN_SOUND = "accompanying files/win.wav"
 
 # VALUES #
 BOLD = "bold"
 NO = "no"
 YES = "yes"
-IMG2048 = "2048number.jpg"
+IMG2048 = "accompanying files/2048number.jpg"
 FONT = "font"
 BG = "bg"
 WIDTH = "width"
 HEIGHT = "height"
 TEXT = "text"
-WIN_VAL = 2048
 
 # TEXT #
 EMPTY_STR = ""
@@ -217,6 +217,8 @@ class Gui:
         self._update_display()
         if self.__game_board.game_over():
             self._lose()
+        if self.__game_board.winner() and not self.__win:
+            self.win()
         self.__undo_button[BG] = MAIN_BUTTONS_COLOR
         Gui.play_sound(MOVE_SOUND)
 
@@ -260,9 +262,6 @@ class Gui:
             if cell_val == 0:
                 cell[TEXT] = EMPTY_STR
             cell[BG] = self.__game_board.get_cell(row, col).get_color()
-            if cell_val == WIN_VAL and not self.__win:
-                Gui.play_sound(WIN_SOUND)
-                self.win()
             if flag:
                 cell.grid(row=row, column=col, padx=SMALL_P, pady=SMALL_P)
 
@@ -309,6 +308,8 @@ class Gui:
         keep_play_button.pack(side=tkinter.LEFT, pady=BIG_P, padx=BIG_P)
         exit_button.pack(side=tkinter.LEFT, pady=BIG_P, padx=BIG_P)
         self.__win = True
+        self.play_sound(WIN_SOUND)
+        time.sleep(0.7)
 
     def play_again(self):
         """

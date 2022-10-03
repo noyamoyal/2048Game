@@ -15,6 +15,7 @@ ROWS = 4
 INITIAL_VAL1 = 2
 INITIAL_VAL2 = 4
 MIN_SCORE_TO_4 = 500
+WIN_VAL = 2048
 UP = "up"
 DOWN = "down"
 RIGHT = "right"
@@ -227,6 +228,13 @@ class Game:
             for cell in row:
                 cell.set_empty()
         self.random_cell()
+
+    def winner(self):
+        for row in self._board:
+            for cell in row:
+                if cell.get_val() == WIN_VAL:
+                    return True
+        return False
 
     # getters and setters
 
