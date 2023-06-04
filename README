@@ -1,0 +1,30 @@
+# 2048 Game
+This repository contains the code for a command-line version of the popular game 2048, implemented in Python. 
+It consists of three main files: `cell.py`, `game.py`, and `gui.py`. These files define the logic and functionality of the game.
+
+## Files
+- `cell.py`: This file contains the `Cell` class, which represents a single cell in the game grid. 
+             It defines the properties and methods of a cell, such as its value and color.
+
+- `game.py`: This file contains the `Game` class, which represents the overall game.
+             It implements the game logic, including the moves (up, down, left, right), random cell generation, 
+             scoring, and checking for game over or win conditions.
+
+- `gui.py`: This file contains the graphical user interface (GUI) implementation of the game using the Tkinter library.
+            It provides a visual representation of the game board and allows the player to interact with the game using keyboard inputs.
+
+## How to Play
+To play the game, simply run the `gui.py` file using Python. 
+The game board will be displayed in a window, and you can use the arrow keys to move the tiles in different directions.
+The goal is to combine tiles with the same number to reach the target value of 2048.
+
+## Requirements
+The game requires Python 3 and the Tkinter library to be installed.
+
+## License
+This project is licensed under the MIT License. Feel free to modify and distribute the code as per the terms of the license.
+
+## Acknowledgments
+The game logic and rules of 2048 were originally created by Gabriele Cirulli. This implementation is based on the original game concept.
+
+have fun 
